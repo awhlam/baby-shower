@@ -17,6 +17,7 @@ password, so don't put anything private behind it.
 | `assets/invite.jpg` | The original printed invitation, kept for reference (the page no longer displays it) |
 | `assets/baby-shower.ics` | Calendar file for Apple Calendar and Outlook |
 | `assets/fonts/` | Great Vibes and Jost, self-hosted so the type sets the same on any host |
+| `assets/og-image.png` | Link preview image shown when the URL is shared |
 | `build_preview.py` | Bundles `index.html` into one self-contained file for sharing |
 
 ## View locally
@@ -39,3 +40,12 @@ within a minute or two.
 Everything a guest reads lives in the `<body>` of `index.html`. The date appears in
 four places that must stay in sync: the invitation block, the Google Calendar link,
 `assets/baby-shower.ics`, and the map/directions links.
+
+The link preview shown when the URL is shared (its title, description, and
+`assets/og-image.png`) is set separately, in the Open Graph `<meta>` tags near the
+top of `<head>`. If the page ever moves off `https://awhlam.github.io/baby-shower/`,
+update `og:url` and `og:image` to match, or the preview image won't load.
+
+The page carries a `noindex` meta tag so search engines don't crawl or cache it —
+worth keeping, since the RSVP email and phone number sit in the page's HTML source
+regardless of the password gate.
