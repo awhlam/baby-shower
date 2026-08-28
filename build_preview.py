@@ -33,9 +33,10 @@ def build(html):
     # Preload hints and the favicon links are the host's job once inlined.
     html = re.sub(r'\s*<link rel="(?:preload|icon|apple-touch-icon)"[^>]*>', "", html)
 
-    # Drop the .ics row — a sandboxed host won't let the page hand over a file.
+    # Drop the .ics link — a sandboxed host won't let the page hand over a
+    # file — along with its "or" separator, leaving the Google Calendar link.
     html = re.sub(
-        r'\s*<a class="action" href="assets/baby-shower\.ics".*?</a>',
+        r'\s*<span class="link-row__or">or</span>\s*<a class="link-row__link" href="assets/baby-shower\.ics".*?</a>',
         "",
         html,
         flags=re.S,
