@@ -74,16 +74,6 @@
     padding: clamp(20px, 5vw, 56px) clamp(14px, 4vw, 28px) 72px;
   }
 
-  .sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
   a { color: var(--ink); }
 
   :focus-visible {
@@ -105,88 +95,6 @@
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0.01em;
-  }
-
-  /* Password gate -------------------------------------------------------- */
-  .gate {
-    min-height: 78vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    text-align: center;
-  }
-
-  .gate__bao {
-    width: clamp(112px, 30vw, 148px);
-    height: auto;
-    animation: float 5.5s ease-in-out infinite;
-  }
-
-  .gate__title {
-    font-family: var(--script);
-    font-weight: 400;
-    font-size: clamp(2.6rem, 11vw, 3.9rem);
-    line-height: 1;
-    margin: 0;
-  }
-
-  .gate__hint {
-    margin: 0;
-    max-width: 34ch;
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-  }
-
-  .gate__form {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .gate__input {
-    font-family: var(--sans);
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 0.04em;
-    padding: 12px 16px;
-    width: min(240px, 62vw);
-    color: var(--ink);
-    background: var(--card);
-    border: 1px solid var(--gold-soft);
-    border-radius: 2px;
-  }
-
-  .gate__input::placeholder { color: #b3a68f; }
-
-  .gate__submit {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    padding: 12px 26px;
-    color: var(--card);
-    background: var(--ink);
-    border: 1px solid var(--ink);
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.18s ease, color 0.18s ease;
-  }
-
-  .gate__submit:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-  }
-
-  .gate__error {
-    margin: 0;
-    min-height: 1.4em;
-    font-size: 0.88rem;
-    letter-spacing: 0.04em;
-    color: #a4462f;
   }
 
   /* The invitation ------------------------------------------------------- */
@@ -602,11 +510,6 @@
   }
 
   /* Motion --------------------------------------------------------------- */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-9px); }
-  }
-
   @keyframes rise {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -617,6 +520,7 @@
   .is-entering > *:nth-child(3) { animation-delay: 0.18s; }
   .is-entering > *:nth-child(4) { animation-delay: 0.27s; }
   .is-entering > *:nth-child(5) { animation-delay: 0.36s; }
+  .is-entering > *:nth-child(6) { animation-delay: 0.45s; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -631,22 +535,7 @@
 
 <main class="stage">
 
-  <!-- Password gate -->
-  <section class="gate" id="gate">
-    <img class="gate__bao" src="assets/dumpling.png" alt="A smiling soup dumpling" width="253" height="219">
-    <p class="eyebrow">A little dumpling is on the way</p>
-    <h1 class="gate__title">Sylvia &amp; Andrew</h1>
-    <p class="gate__hint">Please enter the password from your invitation to see the details.</p>
-    <form class="gate__form" id="gate-form">
-      <label class="sr-only" for="password-input">Password</label>
-      <input class="gate__input" id="password-input" type="password" placeholder="Password" autocomplete="off" autocapitalize="none" spellcheck="false">
-      <button class="gate__submit" type="submit">Enter</button>
-    </form>
-    <p class="gate__error" id="gate-error" role="status"></p>
-  </section>
-
-  <!-- Everything behind the gate -->
-  <div id="content" hidden>
+  <div id="content">
 
     <article class="card">
       <img class="bao bao--tl" src="assets/dumpling.png" alt="" width="253" height="219">
@@ -764,31 +653,13 @@
 
 <script>
   (function () {
-    var PASSWORD = "sylvia-andrew";
-    var STORAGE_KEY = "babyshower-unlocked";
-
-    var gate = document.getElementById("gate");
-    var content = document.getElementById("content");
-    var form = document.getElementById("gate-form");
-    var input = document.getElementById("password-input");
-    var error = document.getElementById("gate-error");
-
-    function unlock(animate) {
-      gate.hidden = true;
-      gate.style.display = "none";
-      content.hidden = false;
-      if (animate) {
-        content.classList.add("is-entering");
-      }
-      checkMap();
-    }
+    document.getElementById("content").classList.add("is-entering");
 
     // A blocked frame stays same-origin (about:blank), so its document is
     // reachable; a map that really loaded is cross-origin and throws.
-    function checkMap() {
-      var wrap = document.getElementById("map");
-      var frame = document.getElementById("map-frame");
-      if (!wrap || !frame) return;
+    var wrap = document.getElementById("map");
+    var frame = document.getElementById("map-frame");
+    if (wrap && frame) {
       setTimeout(function () {
         var blocked = false;
         try {
@@ -799,25 +670,6 @@
         if (blocked) wrap.classList.add("is-blocked");
       }, 2500);
     }
-
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "true") unlock(false);
-    } catch (e) {
-      /* private browsing — the guest just enters the password again */
-    }
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (input.value.trim().toLowerCase() === PASSWORD) {
-        try { sessionStorage.setItem(STORAGE_KEY, "true"); } catch (e) {}
-        error.textContent = "";
-        unlock(true);
-      } else {
-        error.textContent = "That password doesn't match. Please check your invitation.";
-        input.value = "";
-        input.focus();
-      }
-    });
   })();
 </script>
 
