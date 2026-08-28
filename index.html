@@ -269,7 +269,7 @@
   }
 
   .date-time__hours {
-    margin: 0;
+    margin: 0 0 20px;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -478,14 +478,15 @@
     text-wrap: balance;
   }
 
-  .rsvp__contacts {
+  /* Two links separated by "or" -- reused for RSVP contacts and calendar links */
+  .link-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px 14px;
   }
 
-  .rsvp__link {
+  .link-row__link {
     font-size: clamp(0.9rem, 3.3vw, 1rem);
     letter-spacing: 0.04em;
     text-decoration: none;
@@ -494,9 +495,9 @@
     transition: color 0.18s ease, border-color 0.18s ease;
   }
 
-  .rsvp__link:hover { color: var(--gold); }
+  .link-row__link:hover { color: var(--gold); }
 
-  .rsvp__or {
+  .link-row__or {
     color: var(--ink-soft);
     font-size: 0.9rem;
   }
@@ -573,6 +574,11 @@
       <h2 class="panel__title">Date &amp; Time</h2>
       <p class="date-time__day">Sunday, November 8, 2026</p>
       <p class="date-time__hours">12:00 &ndash; 4:00 PM</p>
+      <div class="link-row">
+        <a class="link-row__link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sylvia+%26+Andrew%27s+Baby+Shower&dates=20261108T200000Z%2F20261109T000000Z&location=Beresford+Recreation+Center+-+Assembly+Room%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403&details=A+little+dumpling+is+on+the+way%21+Please+RSVP+by+October+8%2C+2026." target="_blank" rel="noopener">Google Calendar</a>
+        <span class="link-row__or">or</span>
+        <a class="link-row__link" href="assets/baby-shower.ics" download>Apple Calendar</a>
+      </div>
     </section>
 
     <section class="panel">
@@ -597,14 +603,6 @@
         <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=Beresford+Recreation+Center%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403" target="_blank" rel="noopener">
           <span class="action__name">Get directions</span>
           <span class="action__meta">Google Maps</span>
-        </a>
-        <a class="action" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sylvia+%26+Andrew%27s+Baby+Shower&dates=20261108T200000Z%2F20261109T000000Z&location=Beresford+Recreation+Center+-+Assembly+Room%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403&details=A+little+dumpling+is+on+the+way%21+Please+RSVP+by+October+8%2C+2026." target="_blank" rel="noopener">
-          <span class="action__name">Add to calendar</span>
-          <span class="action__meta">Google</span>
-        </a>
-        <a class="action" href="assets/baby-shower.ics" download>
-          <span class="action__name">Add to Apple Calendar</span>
-          <span class="action__meta">Download</span>
         </a>
       </nav>
     </section>
@@ -639,10 +637,10 @@
       <h2 class="panel__title">RSVP</h2>
       <p class="rsvp__by">Kindly reply by</p>
       <p class="rsvp__deadline">October 8, 2026</p>
-      <div class="rsvp__contacts">
-        <a class="rsvp__link" href="mailto:sylhoang91@gmail.com?subject=RSVP%3A%20Sylvia%20%26%20Andrew%27s%20Baby%20Shower&body=Hi%21%20We%20would%20love%20to%20RSVP%20for%20the%20baby%20shower%20on%20November%208.%0A%0AName(s)%3A%20%0ANumber%20attending%3A%20">sylhoang91@gmail.com</a>
-        <span class="rsvp__or">or</span>
-        <a class="rsvp__link" href="sms:+14156465530?body=Hi%21%20RSVPing%20for%20Sylvia%20%26%20Andrew%27s%20baby%20shower%20on%20Nov%208%20%E2%80%94%20">415-646-5530</a>
+      <div class="link-row">
+        <a class="link-row__link" href="mailto:sylhoang91@gmail.com?subject=RSVP%3A%20Sylvia%20%26%20Andrew%27s%20Baby%20Shower&body=Hi%21%20We%20would%20love%20to%20RSVP%20for%20the%20baby%20shower%20on%20November%208.%0A%0AName(s)%3A%20%0ANumber%20attending%3A%20">sylhoang91@gmail.com</a>
+        <span class="link-row__or">or</span>
+        <a class="link-row__link" href="sms:+14156465530?body=Hi%21%20RSVPing%20for%20Sylvia%20%26%20Andrew%27s%20baby%20shower%20on%20Nov%208%20%E2%80%94%20">415-646-5530</a>
       </div>
     </section>
 
