@@ -349,41 +349,9 @@
     transition: color 0.18s ease;
   }
 
-  /* Action rows ---------------------------------------------------------- */
-  .actions {
-    display: flex;
-    flex-direction: column;
-    margin-top: 4px;
-  }
-
-  .action {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 16px 2px;
-    border-bottom: 1px solid var(--gold-soft);
-    text-decoration: none;
-    color: var(--ink);
-    transition: padding-left 0.18s ease;
-  }
-
-  .action:first-child { border-top: 1px solid var(--gold-soft); }
-  .action:hover { padding-left: 8px; }
-  .action:hover .action__name { color: var(--gold); }
-
-  .action__name {
-    font-size: clamp(0.94rem, 3.4vw, 1.04rem);
-    letter-spacing: 0.02em;
-    transition: color 0.18s ease;
-  }
-
-  .action__meta {
-    flex: none;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--ink-soft);
+  .directions {
+    margin: 20px 0 0;
+    text-align: center;
   }
 
   /* Gifts ---------------------------------------------------------------- */
@@ -565,7 +533,7 @@
       </section>
 
       <section class="where">
-        <p class="where__venue">Beresford Recreation Center &mdash; Assembly Room</p>
+        <p class="where__venue">Beresford Recreation Center<br>Assembly Room</p>
         <p class="where__address">2720 Alameda de las Pulgas, San Mateo, CA 94403</p>
       </section>
     </article>
@@ -583,7 +551,7 @@
 
     <section class="panel">
       <h2 class="panel__title">Finding us</h2>
-      <p class="venue-name">Beresford Recreation Center &mdash; Assembly Room</p>
+      <p class="venue-name">Beresford Recreation Center<br>Assembly Room</p>
       <p class="venue-address">2720 Alameda de las Pulgas, San Mateo, CA 94403</p>
       <div class="map" id="map">
         <iframe
@@ -599,12 +567,9 @@
         </a>
       </div>
 
-      <nav class="actions">
-        <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=Beresford+Recreation+Center%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403" target="_blank" rel="noopener">
-          <span class="action__name">Get directions</span>
-          <span class="action__meta">Google Maps</span>
-        </a>
-      </nav>
+      <p class="directions">
+        <a class="link-row__link" href="https://www.google.com/maps/dir/?api=1&destination=Beresford+Recreation+Center%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403" target="_blank" rel="noopener">Get directions</a>
+      </p>
     </section>
 
     <section class="panel gifts">
