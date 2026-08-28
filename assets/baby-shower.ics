@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sylvia and Andrew//Baby Shower//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:baby-shower-2026-11-08@sylvia-andrew
+DTSTAMP:20260828T000000Z
+DTSTART:20261108T200000Z
+DTEND:20261109T000000Z
+SUMMARY:Sylvia & Andrew's Baby Shower
+LOCATION:Beresford Recreation Center - Assembly Room\, 2720 Alameda de las
+  Pulgas\, San Mateo\, CA 94403
+DESCRIPTION:A little dumpling is on the way! Please RSVP by October 8\, 202
+ 6 to sylhoang91@gmail.com or text 415-646-5530.
+END:VEVENT
+END:VCALENDAR
