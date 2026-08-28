@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Dumpling is on the Way!</title>
+<style>
+  :root {
+    --gold: #c9a24b;
+    --ink: #2b2622;
+    --paper: #fffdf8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+    background: #f6efe2;
+    color: var(--ink);
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px 64px;
+  }
+  .page {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  /* --- Password gate --- */
+  #gate {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+  }
+  #gate img {
+    width: 90px;
+    height: auto;
+  }
+  #gate h1 {
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+  }
+  #gate p {
+    margin: 0;
+    color: #6b6459;
+    font-size: 0.95rem;
+  }
+  #gate form {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #gate input[type="password"] {
+    padding: 10px 14px;
+    border: 1px solid #d8cdb8;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 220px;
+  }
+  #gate button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: var(--gold);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  #gate button:hover { background: #b3903f; }
+  #gate .error {
+    color: #b3462c;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+  }
+
+  /* --- Content --- */
+  #content { display: none; }
+  #content.visible { display: block; }
+
+  .invite-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .details {
+    background: var(--paper);
+    border: 1px solid #e6dcc4;
+    border-radius: 12px;
+    padding: 28px 24px;
+  }
+
+  .details h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    color: #6b6459;
+  }
+
+  .row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 22px;
+    align-items: flex-start;
+  }
+  .row .icon {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+  }
+  .row .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a08f5f;
+    margin-bottom: 2px;
+  }
+  .row .value {
+    font-size: 1.02rem;
+    line-height: 1.4;
+  }
+  .row a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e6dcc4;
+    margin: 24px 0;
+  }
+
+  .rsvp p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+  }
+  .rsvp .note {
+    font-size: 0.85rem;
+    color: #a08f5f;
+    margin-top: 14px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.85rem;
+    color: #a08f5f;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div id="gate">
+    <img src="assets/invite.jpg" alt="" style="border-radius: 50%; width: 90px; height: 90px; object-fit: cover;">
+    <h1>A Little Dumpling is on the Way!</h1>
+    <p>Please enter the password from your invitation to view the details.</p>
+    <form id="gate-form">
+      <input type="password" id="password-input" placeholder="Password" autocomplete="off" autofocus>
+      <button type="submit">Enter</button>
+    </form>
+    <div class="error" id="gate-error"></div>
+  </div>
+
+  <div id="content">
+    <img class="invite-img" src="assets/invite.jpg" alt="A Little Dumpling is on the Way! Please join us for a baby shower honoring Sylvia & Andrew">
+
+    <div class="details">
+      <h2>Shower Details</h2>
+
+      <div class="row">
+        <div class="icon">📅</div>
+        <div>
+          <div class="label">Date &amp; Time</div>
+          <div class="value">Sunday, November 8, 2026<br>12:00 PM &ndash; 4:00 PM</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="icon">📍</div>
+        <div>
+          <div class="label">Location</div>
+          <div class="value">
+            Beresford Recreation Center &ndash; Assembly Room<br>
+            <a href="https://maps.google.com/?q=2720+Alameda+de+las+Pulgas,+San+Mateo,+CA+94403" target="_blank" rel="noopener">
+              2720 Alameda de las Pulgas, San Mateo, CA 94403
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="rsvp">
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="icon">💌</div>
+          <div>
+            <div class="label">RSVP</div>
+            <div class="value">Please RSVP by October 8, 2026</div>
+          </div>
+        </div>
+        <p>
+          To RSVP, please email <a href="mailto:sylhoang91@gmail.com">sylhoang91@gmail.com</a>
+          or text <a href="sms:+14156465530">415-646-5530</a>.
+        </p>
+      </div>
+    </div>
+
+    <footer>We can't wait to celebrate with you! 🥟</footer>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    const PASSWORD = "sylvia-andrew";
+    const STORAGE_KEY = "babyshower-unlocked";
+
+    const gate = document.getElementById("gate");
+    const content = document.getElementById("content");
+    const form = document.getElementById("gate-form");
+    const input = document.getElementById("password-input");
+    const error = document.getElementById("gate-error");
+
+    function unlock() {
+      gate.style.display = "none";
+      content.classList.add("visible");
+    }
+
+    if (sessionStorage.getItem(STORAGE_KEY) === "true") {
+      unlock();
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const value = input.value.trim().toLowerCase();
+      if (value === PASSWORD) {
+        sessionStorage.setItem(STORAGE_KEY, "true");
+        error.textContent = "";
+        unlock();
+      } else {
+        error.textContent = "Incorrect password, please try again.";
+        input.value = "";
+        input.focus();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
