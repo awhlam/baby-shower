@@ -38,6 +38,7 @@
     --gold:       #b08d4f;   /* the foil rule */
     --gold-soft:  #e0cea8;
     --blush:      #f2d2d2;   /* the dumpling's cheeks */
+    --card-tint:  #faf6ee;   /* a shade of the card, to give a block weight */
 
     --script: "Great Vibes", "Snell Roundhand", "Apple Chancery", cursive;
     --sans: "Jost", "Futura", "Century Gothic", "Trebuchet MS", sans-serif;
@@ -437,6 +438,65 @@
     color: var(--ink-soft);
   }
 
+  /* Gifts ---------------------------------------------------------------- */
+  .gifts__intro {
+    margin: -6px 0 24px;
+    text-align: center;
+    font-size: clamp(0.9rem, 3.3vw, 1rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 42ch;
+    margin-inline: auto;
+    text-wrap: balance;
+  }
+
+  .gifts__options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+  }
+
+  .gift {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding: 26px 18px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--card-tint);
+    border: 1px solid var(--gold-soft);
+    transition: border-color 0.18s ease, transform 0.18s ease;
+  }
+
+  .gift:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .gift__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-soft);
+  }
+
+  .gift__name {
+    font-family: var(--script);
+    font-size: clamp(1.65rem, 6.5vw, 2.05rem);
+    line-height: 1.15;
+  }
+
+  .gift__cue {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold-soft);
+    padding-bottom: 3px;
+  }
+
   /* RSVP ----------------------------------------------------------------- */
   .rsvp { text-align: center; }
 
@@ -596,11 +656,24 @@
           <span class="action__name">Add to Apple Calendar</span>
           <span class="action__meta">Download</span>
         </a>
-        <a class="action" href="https://www.amazon.com/baby-reg/sylvia-hoang-january-2027-sanmateo/23Q2C3ITQDETT" target="_blank" rel="noopener">
-          <span class="action__name">Baby registry</span>
-          <span class="action__meta">Amazon</span>
-        </a>
       </nav>
+    </section>
+
+    <section class="panel gifts">
+      <h2 class="panel__title">Gifts</h2>
+      <p class="gifts__intro">Your company is the very best gift &mdash; but if you&rsquo;d like to bring something, here are two easy ways.</p>
+      <div class="gifts__options">
+        <a class="gift" href="https://www.amazon.com/baby-reg/sylvia-hoang-january-2027-sanmateo/23Q2C3ITQDETT" target="_blank" rel="noopener">
+          <span class="gift__label">Amazon</span>
+          <span class="gift__name">Baby Registry</span>
+          <span class="gift__cue">View the registry</span>
+        </a>
+        <a class="gift" href="https://venmo.com/u/shoangster" target="_blank" rel="noopener">
+          <span class="gift__label">Venmo</span>
+          <span class="gift__name">&#64;shoangster</span>
+          <span class="gift__cue">Send a gift</span>
+        </a>
+      </div>
     </section>
 
     <section class="panel rsvp">
