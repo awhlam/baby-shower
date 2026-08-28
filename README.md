@@ -38,8 +38,10 @@ within a minute or two.
 ## Changing the details
 
 Everything a guest reads lives in the `<body>` of `index.html`. The date appears in
-four places that must stay in sync: the invitation block, the Google Calendar link,
-`assets/baby-shower.ics`, and the map/directions links.
+five places that must stay in sync: the invitation block, the Date & Time panel, the
+Google Calendar link, `assets/baby-shower.ics`, and the map/directions links. The
+venue name and address appear in three: the invitation block, the Finding Us panel,
+and the map/directions/calendar links.
 
 The link preview shown when the URL is shared (its title, description, and
 `assets/og-image.png`) is set separately, in the Open Graph `<meta>` tags near the
