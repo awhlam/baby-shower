@@ -349,6 +349,42 @@
     color: var(--ink-soft);
   }
 
+  /* Date & Time ------------------------------------------------------------ */
+  .date-time {
+    text-align: center;
+  }
+
+  .date-time__day {
+    margin: 0 0 6px;
+    font-size: clamp(1.25rem, 4.6vw, 1.5rem);
+    letter-spacing: 0.01em;
+  }
+
+  .date-time__hours {
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+  }
+
+  /* Venue name/address, reused above the map and in the invitation card -- */
+  .venue-name {
+    margin: -8px 0 4px;
+    text-align: center;
+    font-size: clamp(0.82rem, 3.1vw, 0.92rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .venue-address {
+    margin: 0 0 22px;
+    text-align: center;
+    font-size: clamp(0.78rem, 2.9vw, 0.86rem);
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+  }
+
   /* Map ------------------------------------------------------------------ */
   .map {
     position: relative;
@@ -393,14 +429,6 @@
   .map__fallback:hover .map__cue { color: var(--gold); }
 
   .map__pin { width: 22px; height: auto; fill: var(--gold); }
-
-  .map__label {
-    margin: 0;
-    font-size: 0.86rem;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    max-width: 30ch;
-  }
 
   .map__cue {
     margin: 0;
@@ -605,7 +633,7 @@
 
   <!-- Password gate -->
   <section class="gate" id="gate">
-    <img class="gate__bao" src="assets/dumpling.png" alt="A smiling soup dumpling" width="237" height="203">
+    <img class="gate__bao" src="assets/dumpling.png" alt="A smiling soup dumpling" width="253" height="219">
     <p class="eyebrow">A little dumpling is on the way</p>
     <h1 class="gate__title">Sylvia &amp; Andrew</h1>
     <p class="gate__hint">Please enter the password from your invitation to see the details.</p>
@@ -621,8 +649,8 @@
   <div id="content" hidden>
 
     <article class="card">
-      <img class="bao bao--tl" src="assets/dumpling.png" alt="" width="237" height="203">
-      <img class="bao bao--br" src="assets/dumpling.png" alt="" width="237" height="203">
+      <img class="bao bao--tl" src="assets/dumpling.png" alt="" width="253" height="219">
+      <img class="bao bao--br" src="assets/dumpling.png" alt="" width="253" height="219">
 
       <header class="invite">
         <p class="invite__kicker">A little</p>
@@ -652,8 +680,16 @@
       </section>
     </article>
 
+    <section class="panel date-time">
+      <h2 class="panel__title">Date &amp; Time</h2>
+      <p class="date-time__day">Sunday, November 8, 2026</p>
+      <p class="date-time__hours">12:00 &ndash; 4:00 PM</p>
+    </section>
+
     <section class="panel">
       <h2 class="panel__title">Finding us</h2>
+      <p class="venue-name">Beresford Recreation Center &mdash; Assembly Room</p>
+      <p class="venue-address">2720 Alameda de las Pulgas, San Mateo, CA 94403</p>
       <div class="map" id="map">
         <iframe
           class="map__frame"
@@ -662,9 +698,8 @@
           src="https://www.google.com/maps?q=Beresford%20Recreation%20Center%2C%202720%20Alameda%20de%20las%20Pulgas%2C%20San%20Mateo%2C%20CA%2094403&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <a class="map__fallback" href="https://www.google.com/maps/search/?api=1&query=Beresford+Recreation+Center%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403" target="_blank" rel="noopener">
+        <a class="map__fallback" href="https://www.google.com/maps/search/?api=1&query=Beresford+Recreation+Center%2C+2720+Alameda+de+las+Pulgas%2C+San+Mateo%2C+CA+94403" target="_blank" rel="noopener" aria-label="Open Beresford Recreation Center in Google Maps">
           <svg class="map__pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C7.6 0 4 3.6 4 8c0 6 8 16 8 16s8-10 8-16c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
-          <p class="map__label">Beresford Recreation Center, 2720 Alameda de las Pulgas, San Mateo</p>
           <p class="map__cue">Open in Google Maps</p>
         </a>
       </div>
