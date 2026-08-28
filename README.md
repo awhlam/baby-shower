@@ -1,18 +1,14 @@
 # baby-shower
 
 A one-page site for Sylvia & Andrew's baby shower — Sunday, November 8, 2026 at the
-Beresford Recreation Center in San Mateo. Guests enter the password `sylvia-andrew`
-to see the invitation, an embedded map, calendar links, the registry, and how to RSVP.
-
-The password gate is client-side only. It keeps the page from being casually stumbled
-upon, but it isn't real security — anyone who views the page source can read the
-password, so don't put anything private behind it.
+Beresford Recreation Center in San Mateo. The invitation, an embedded map, calendar
+links, the registry, and how to RSVP.
 
 ## Files
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | The whole site — markup, styles, and the gate script |
+| `index.html` | The whole site — markup, styles, and the entrance-animation/map-fallback script |
 | `assets/dumpling.png` | The dumpling, cut out of the printed invitation |
 | `assets/invite.jpg` | The original printed invitation, kept for reference (the page no longer displays it) |
 | `assets/baby-shower.ics` | Calendar file for Apple Calendar and Outlook |
@@ -50,4 +46,4 @@ update `og:url` and `og:image` to match, or the preview image won't load.
 
 The page carries a `noindex` meta tag so search engines don't crawl or cache it —
 worth keeping, since the RSVP email and phone number sit in the page's HTML source
-regardless of the password gate.
+and the page has no other access control.
