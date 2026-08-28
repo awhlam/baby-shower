@@ -14,7 +14,7 @@ password, so don't put anything private behind it.
 | --- | --- |
 | `index.html` | The whole site — markup, styles, and the gate script |
 | `assets/dumpling.png` | The dumpling, cut out of the printed invitation |
-| `assets/invite.jpg` | The original printed invitation |
+| `assets/invite.jpg` | The original printed invitation, kept for reference (the page no longer displays it) |
 | `assets/baby-shower.ics` | Calendar file for Apple Calendar and Outlook |
 | `assets/fonts/` | Great Vibes and Jost, self-hosted so the type sets the same on any host |
 | `build_preview.py` | Bundles `index.html` into one self-contained file for sharing |
