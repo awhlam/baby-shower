@@ -1,4 +1,4 @@
-# baby-shower-website
+# baby-shower
 
 A one-page site for Sylvia & Andrew's baby shower — Sunday, November 8, 2026 at the
 Beresford Recreation Center in San Mateo. Guests enter the password `sylvia-andrew`
@@ -30,9 +30,9 @@ and fonts still work, but the `.ics` download may not.
 
 ## Publish on GitHub Pages
 
-Merge this branch into `main`, then go to **Settings → Pages**, choose
-**Deploy from a branch**, pick `main` and `/ (root)`, and save. The site appears at
-`https://awhlam.github.io/baby-shower-website/` within a minute or two.
+Go to **Settings → Pages**, choose **Deploy from a branch**, pick `main` and
+`/ (root)`, and save. The site appears at `https://awhlam.github.io/baby-shower/`
+within a minute or two.
 
 ## Changing the details
 
